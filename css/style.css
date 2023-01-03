@@ -1,0 +1,135 @@
+
+@font-face {
+    font-family: 'Poppins Light';
+    src: url('../assets/Poppins/Poppins-Light.ttf');
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('../assets/Poppins/Poppins-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Poppins SemiBold';
+    src: url('../assets/Poppins/Poppins-SemiBold.ttf');
+}
+
+@font-face {
+    font-family: 'Poppins Bold';
+    src: url('../assets/Poppins/Poppins-Bold.ttf');
+}
+
+/*
+    pt unit should be used whenever setting sizes
+*/
+
+* {
+    font-family: 'Poppins';
+}
+
+html, body {
+    margin: 0;
+    height: 100%;
+}
+
+#product-view-canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.product-name {
+    font-size: 17pt;
+    font-family: 'Poppins';
+    margin-bottom: 20pt;
+}
+
+.navbar {
+    border-width: 1pt;
+    border-color: #9B9B9B;
+    border-style: solid;
+}
+
+.nav-item {
+    border-radius: 45pt;
+    padding: 5pt;
+}
+
+.nav-item:hover {
+    background-color: #F4F4F4;
+}
+
+
+.nav-item .nav-link {
+    font-family: 'Poppins Bold';
+    color: black;
+    border-radius: 45pt;
+}
+
+.product-old-price {
+    font-family: 'Poppins';
+    font-size: 13pt;
+    color: #9B9B9B;
+    text-decoration: line-through;
+}
+
+.product-price {
+    font-family: 'Poppins Bold';
+    font-size: 25pt;
+}
+
+.product-description-container {
+    padding: 10pt;
+}
+
+.product-description-text {
+    color: #606060;
+    margin-top: 10pt;
+    margin-bottom: 10pt;
+}
+
+.product-spec {
+    font-family: 'Poppins SemiBold';
+    font-size: 13pt;
+}
+
+.product-spec-val {
+    font-family: 'Poppins';
+    font-size: 13pt;
+}
+
+.product-specs-table {
+    margin-bottom: 30pt;
+}
+
+.product-specs-table td {
+    padding: 15pt 0pt 15pt 0pt;
+    border-bottom: 1px solid #9B9B9B;
+}
+
+.section-header {
+    font-family: 'Poppins Bold';
+    font-size: 30pt;
+    margin-bottom: 10pt;
+}
+
+.search-bar {
+    background-color: #F4F4F4;
+    border-radius: 45pt;
+    padding: 10pt;
+    border-style: none;
+    font-family: 'Poppins';
+    font-size: 13pt;
+}
+
+.button {
+    background-color: black;
+    font-family: 'Poppins Bold';
+    text-align: center;
+    font-size: 11pt;
+    text-transform: uppercase;
+    color: white;
+    border-style: none;
+    border-radius: 45pt;
+    padding: 8pt 20pt 8pt 20pt !important;
+}
