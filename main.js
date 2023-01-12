@@ -4,7 +4,7 @@ let renderer = new THREE.WebGLRenderer({canvas, antialias: true})
 let sceneLoaded = false;
 
 const fov = 75;
-const aspect = 2;
+const aspect = 3;
 const near = 0.1;
 const far = 1000;
 
@@ -59,11 +59,12 @@ previewToggler.addEventListener('click', function() {
 renderer.toneMapping = THREE.ReinhardToneMapping;
 renderer.toneMappingExposure = 4;
 renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 renderer.physicallyCorrectLights = true;
 renderer.setPixelRatio(window.devicePixelRatio)
 
 function downscaleBrightness(value) {
-    return value / 100;
+    return value / 300;
 }
 
 camera.position.x = 0
@@ -94,7 +95,7 @@ new THREE.GLTFLoader().load(
             
             if(x.isLight) {
                 x.castShadow = true;
-                // x.intensity = downscaleBrightness(x.intensity);
+                x.intensity = downscaleBrightness(x.intensity);
                 if(x.isPointLight) {
                     x.shadow.camera.near = 0.0001;
                     x.shadow.camera.far = 100;
@@ -104,11 +105,13 @@ new THREE.GLTFLoader().load(
                     scene.add(shadowHelper)
 
                 } else if(x.isSpotLight) {
+                    /*
                     x.shadow.camera.near = 0;
                     x.shadow.camera.far = 100;
-                    x.intensity = 0;
                     x.distance = Infinity;
+                    */
                 }
+                x.shadow.bias = -0.005; // remove shadow acne
             }
 
             if (x.isMesh) {

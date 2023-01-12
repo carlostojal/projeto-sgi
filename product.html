@@ -81,35 +81,22 @@
 
                       <h1 class="product-name">Móvel TV/hifi em pinho maciço e palhinha, Gabin</h1>
 
-                      <table class="product-specs-table container-fluid">
-                        <!-- cor -->
-                        <tr>
-                          <td>
-                            <span class="product-spec">Cor</span>
-                          </td>
-                          <td>
-                            <span class="product-spec-val"><button class="button">Mudar</button></span>
-                          </td>
-                        </tr>
-                        <!-- tamanho -->
-                        <tr>
-                          <td>
-                            <span class="product-spec">Tamanho</span>
-                          </td>
-                          <td>
-                            <span class="product-spec-val">Tamanho único</span>
-                          </td>
-                        </tr>
-                        <!-- quantidade -->
-                        <tr>
-                          <td>
-                            <span class="product-spec">Quantidade</span>
-                          </td>
-                          <td>
-                            <span class="product-spec-val" id="quantity-field">1</span>
-                          </td>
-                        </tr>
-                      </table>
+                      <div>
+                        <div class="row">
+                          <div class="col-sm-6 product-spec">Cor</div>
+                          <div class="col-sm-6 product-spec-val"><button class="button">Mudar</button></div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                          <div class="col-sm-6 product-spec">Tamanho</div>
+                          <div class="col-sm-6 product-spec-val">Tamanho único</div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                          <div class="col-sm-6 product-spec">Quantidade</div>
+                          <div class="col-sm-6 product-spec-val"><input type="number" value="1" id="quantity-field"></div>
+                        </div>
+                      </div>
 
                       <span class="product-old-price">645.00 €</span><br>
                       <span class="product-price" style="margin-bottom: 30pt;">483.75 €</span><br>
@@ -138,15 +125,21 @@
 
         <script>
 
-          let quantityInCart = 0;
+          let quantityInCart = localStorage.getItem("quantityInCart");
+          if(quantityInCart == null) {
+            quantityInCart = 0;
+          } else {
+            quantityInCart = parseInt(quantityInCart);
+          }
 
           function addToCart(unidades) {
             alertify.success(`${quantityToAdd} unidade(s) adicionada(s) ao carrinho!`);
             quantityInCart += unidades;
+            localStorage.setItem("quantityInCart", quantityInCart);
           }
 
           document.getElementById("add-to-cart-btn").addEventListener("click", function() {
-            quantityToAdd = parseInt(document.getElementById("quantity-field").innerHTML);
+            quantityToAdd = parseInt(document.getElementById("quantity-field").value);
             if(quantityInCart == 0) {
               addToCart(quantityToAdd);
             } else {
